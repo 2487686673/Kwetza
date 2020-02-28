@@ -5,12 +5,12 @@ By Chris Le Roy (@brompwnie) chris@sensepost.com
 
 Kwetza is a tool that allows you to infect an existing Android application with a Meterpreter payload.
 
-#修改说明
-以下修复均出现在手机Termux终端上
-1.指定脚本使用python3执行
-2.修复语法错误:调用“print”时缺少括号
-3.修复需要一个类似于bytes的对象，而不是'str'
-4.修复'utf-8'编解码器无法解码字节0xa4在位置4:无效的开始字节
+# 修改说明  
+以下修复均出现在手机Termux终端上  
+1.指定脚本使用python3执行  
+2.修复语法错误:调用“print”时缺少括号  
+3.修复需要一个类似于bytes的对象，而不是'str'  
+4.修复'utf-8'编解码器无法解码字节0xa4在位置4:无效的开始字节  
 
 # What does it do?
 
